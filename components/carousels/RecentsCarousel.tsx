@@ -25,13 +25,15 @@ const RecentCarousel: React.FC<RecentCarouselProps> = ({ items }) => {
               key={item.id}
               className="group relative basis-1/2 rounded-3xl lg:basis-1/5"
             >
-              <Image
-                src={item.image}
-                alt={item.title.toString()}
-                width={220}
-                height={270}
-                className="w-full rounded-3xl"
-              />
+              {item.image && (
+                <Image
+                  src={item.image}
+                  alt={item.title.toString()}
+                  width={220}
+                  height={270}
+                  className="w-full rounded-3xl"
+                />
+              )}
               <Link
                 href={`/watch/${item.id}`}
                 className="absolute left-0 top-0 flex h-full w-full flex-col items-center justify-center rounded-3xl bg-black bg-opacity-0 text-white opacity-0 backdrop-blur transition group-hover:bg-opacity-40 group-hover:opacity-100"

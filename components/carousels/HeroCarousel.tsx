@@ -32,18 +32,22 @@ const HeroCarousel: React.FC<HeroCarouselProps> = ({ items }) => {
       <CarouselContent className="h-full">
         {items.map((item) => (
           <CarouselItem key={item.id} className="relative h-screen">
-            <Image
-              src={item.cover}
-              alt={item.title ? item.title.toString() : "anime"}
-              fill
-              className="absolute z-0 hidden object-cover opacity-50 lg:block"
-            />
-            <Image
-              src={item.image}
-              alt={item.title ? item.title.toString() : "anime"}
-              fill
-              className="absolute z-0 object-cover opacity-50 lg:hidden"
-            />
+            {item.cover && (
+              <Image
+                src={item.cover}
+                alt={item.title ? item.title.toString() : "anime"}
+                fill
+                className="absolute z-0 hidden object-cover opacity-50 lg:block"
+              />
+            )}
+            {item.image && (
+              <Image
+                src={item.image}
+                alt={item.title ? item.title.toString() : "anime"}
+                fill
+                className="absolute z-0 object-cover opacity-50 lg:hidden"
+              />
+            )}
             <div className="relative z-10 mx-auto flex h-full flex-col items-center justify-end gap-y-6 pb-16 lg:w-[1060px] lg:items-start lg:gap-y-10 xl:w-[1240px] 2xl:w-[1440px]">
               <AnimeTitle item={item} className="text-[48px]" />
               <div className="flex gap-x-6">
